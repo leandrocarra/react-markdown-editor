@@ -1,1 +1,2 @@
-# react-markdown-editor
+# Markdown editor
+
