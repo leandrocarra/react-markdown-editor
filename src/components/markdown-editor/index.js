@@ -1,12 +1,12 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import Header from './markdown-editor-header'
+import Header from './header'
 
-const MarkdownEditor = ({ handleSave, value, handleChange, getMarkup }) => (
+const MarkdownEditor = ({ value, handleChange, getMarkup, textareaRef, ...props }) => (
   <section className='editor'>
-    <Header onSave={handleSave} />
-    <textarea value={value} onChange={handleChange} autoFocus />
+    <Header {...props} />
+    <textarea value={value} onChange={handleChange} autoFocus ref={textareaRef} />
     <article className='view' dangerouslySetInnerHTML={getMarkup()} />
   </section>
 )
@@ -14,8 +14,8 @@ const MarkdownEditor = ({ handleSave, value, handleChange, getMarkup }) => (
 MarkdownEditor.propTypes = {
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  handleSave: PropTypes.func.isRequired,
-  getMarkup: PropTypes.func.isRequired
+  getMarkup: PropTypes.func.isRequired,
+  textareaRef: PropTypes.func.isRequired
 }
 
 export default MarkdownEditor
