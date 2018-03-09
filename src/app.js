@@ -20,22 +20,42 @@ import('highlight.js').then((hljs) => {
 class App extends Component {
   constructor () {
     super()
-    this.state = { value: '' }
+    this.state = {
+      value: '',
+      isSaving: false
+    }
 
     this.handleChange = (e) => {
-      this.setState({ value: e.target.value })
+      this.setState({
+        value: e.target.value,
+        isSaving: true
+      })
     }
     this.getMarkup = () => {
       return { __html: marked(this.state.value) }
     }
     this.handleSave = () => {
-      localStorage.setItem('md', this.state.value)
+      if (this.state.isSaving) {
+        localStorage.setItem('md', this.state.value)
+        this.setState({ isSaving: false })
+      }
+    }
+    this.handleRemove = () => {
+      localStorage.removeItem('md')
+      this.setState({ value: '' })
+    }
+    this.handleCreate = () => {
+      this.setState({ value: '' })
+      this.textarea.focus()
+    }
+    this.textareaRef = (node) => {
+      this.textarea = node
     }
   }
 
   componentDidMount () {
     const value = localStorage.getItem('md')
-    this.setState({ value })
+    this.setState({ value: value || '' })
   }
 
   componentDidUpdate () {
@@ -49,7 +69,10 @@ class App extends Component {
         value={this.state.value}
         handleChange={this.handleChange}
         getMarkup={this.getMarkup}
-        handleSave={this.handleSave}
+        textareaRef={this.textareaRef}
+        isSaving={this.state.isSaving}
+        handleRemove={this.handleRemove}
+        handleCreate={this.handleCreate}
       />
     )
   }
