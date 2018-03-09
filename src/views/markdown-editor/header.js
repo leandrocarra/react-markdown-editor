@@ -1,17 +1,24 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
+import Button from 'components/button'
+import SaveMessage from 'components/save-message'
 
 const MarkdownEditorHeader = ({ isSaving, handleRemove, handleCreate }) => (
   <header className='editor-header'>
-    <p className='save-message'>{isSaving ? 'Aguardando...' : 'Salvo!'}</p>
-    <button onClick={handleCreate}>Create</button>
-    <button onClick={handleRemove} className='button-remove'>Remove</button>
+    <SaveMessage isSaving={isSaving} />
+
+    <Button onClick={handleCreate} kind='success'>
+      Create
+    </Button>
+
+    <Button onClick={handleRemove} kind='danger'>
+      Remove
+    </Button>
   </header>
 )
 
 MarkdownEditorHeader.prototypes = {
-  isSaving: PropTypes.bool.isRequired,
   handleRemove: PropTypes.func.isRequired,
   handleCreate: PropTypes.func.isRequired
 }
