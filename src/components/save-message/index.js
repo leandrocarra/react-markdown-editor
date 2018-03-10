@@ -1,13 +1,14 @@
 'use strict'
 
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const SaveMessage = ({ isSaving }) => (
-  isSaving !== null && (
+  isSaving !== null && isSaving !== undefined && (
     <p className='save-message'>
       {isSaving ? 'Aguardando...' : 'Saved!'}
     </p>
-   )
+  )
 )
 
 SaveMessage.propTypes = {
