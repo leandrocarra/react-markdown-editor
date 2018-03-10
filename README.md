@@ -7,16 +7,15 @@
 
 ## Development setup
 
-I used Yarn how manager of this repo, but you can use npm as well.
+I used Yarn as manager of this repo, but you can use npm as well.
 
-I chose to use the standard pattern for this app, in that case I did not need to use a semicolon.
+I chose to use the standard pattern in this app, in that case I did not need to use a semicolon.
 
-When use install you are installing:
+When you run install you are installing:
 - jest
 - storybook
 - lint
 - some loaders of webpack 2
-
 
 ## Installation
 
@@ -26,7 +25,7 @@ OS X & Linux:
 yarn install or npm install
 ```
 ## Starting server
-This comand will start server in port:3000, and run webpack 2  with dashboard
+This comand will start server in port:3000, and run webpack 2 with dashboard
 
 ```sh
 yarn run dev or npm run dev
@@ -65,7 +64,7 @@ yarn run lint:fix or npm run lint:fix
 
 ## Production
 
-You can view files of production running
+You can view files of production, running command:
 
 ```sh
 yarn run build or npm run build
