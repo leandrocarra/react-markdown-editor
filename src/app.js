@@ -95,6 +95,7 @@ class App extends Component {
   }
 
   componentDidMount () {
+    //localStorage.setItem('markdown-editor', JSON.stringify(files))
     const files = JSON.parse(localStorage.getItem('markdown-editor'))
     this.setState({ files })
   }
