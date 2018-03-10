@@ -12,11 +12,11 @@ const MarkdownEditorHeader = ({ title, isSaving, handleRemove, handleCreate, han
     <SaveMessage isSaving={isSaving} />
 
     <Button onClick={handleCreate} kind='success'>
-      Criar novo
+      Create New
     </Button>
 
     <Button onClick={handleRemove} kind='danger'>
-      Remover
+      Remove
     </Button>
   </header>
 )
